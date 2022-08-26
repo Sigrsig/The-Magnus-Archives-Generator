@@ -4,6 +4,8 @@ export default function tmaName() {
     "Sasha James, assistant archivist at the Magnus Institute, London",
     "Martin Blackwood",
     "Martin Blackwood, archival assistant at the Magnus Institute, London",
+    "Jonathan Sims, Head Archivist of the Magnus Institute",
+    "Johnathan Sims",
     "Melanie King",
     "Adelard Dekker",
     "Agnes Montague",

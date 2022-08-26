@@ -71,12 +71,18 @@ const Generator = () => {
       `Statement of ${getName()}, regarding their time ${getIngVerb()} at an industrial abattoir near Dalston`,
       `Statement of ${getName()}, regarding their ${getIngVerb()} trip to Blue Ridge, Viginia`,
       `Statement of ${getName()}, regarding a ${getAdj()} ${getNoun()} in their attic`,
-      `Statement of ${getName()}, regarding his life as a self-proclaimed ${getJob()}`,
+      `Statement of ${getName()}, regarding their life as a self-proclaimed ${getJob()}`,
+      `Statement of ${getName()}, regarding a series of misplaced ${getPluralNoun()} lost over the course of three months`,
+      `Statement of Police Constable ${getName()} regarding their time investigating strange ${getPluralNoun()} as part of Section 31`,
+      `Statement of ${getName()}, regarding their experiences working in ${getNoun()} research during the spring of ${getYear()}`,
+
+      `Statement of ${getName()}, regarding a new ${getNoun()} in a house they were selling`,
+      `Statement of ${getName()} regarding their investigations into ${getJob()} ${getName()} during the summer of ${getYear()}`,
     ];
     setGenerated(
       statements[Math.floor(Math.random() * (statements.length - 1))]
     );
-    // setGenerated(statements[statements.length - 1]);
+    // setGenerated(statements[statements.length - 6]);
     return;
   };
 
@@ -150,14 +156,12 @@ const Generator = () => {
 export default Generator;
 
 /**
- * Ideas: get relations, places, events,
- * Add Magnus archive-y words!
- * add gendered statements
- * Reached: 33
+ * Ideas: 
+ * Reached: 50
  * https://snarp.github.io/magnus_archives_transcripts/
- * -ed and -ing verbs don't know when to do double constinants before -ed/-ing
- * math.floor vs. math.floor?
  * add lie verb
+ * a vs. an
+ * fix plural nouns ending in y
  *
  * Unused statements:
  * `Statement of ${getName()} regarding the actions and motivations of her ${getRelation()}, the ${getJob()} ${getName()}`
@@ -173,4 +177,15 @@ export default Generator;
  * Statement of Melanie King, regarding events at the abandoned Cambridge Military Hospital during filming in January 2015
  * Statement of Carlita Sloane, regarding her work on a container ship travelling from Southampton to Porto do Itaqui
  * `Statement of ${getName()}, regarding a new ${getNoun()} at Chiswick Library`
+ * Original recording of Jane Prentiss' attack upon The Magnus Institute, London, 29th July 2016
+ * Statement of Jason North, regarding the discovery of an alleged ritual site found near Loch Glass in Scotland
+ * Statement of Nicole Baxter, regarding visits culminating in the fire that consumed Ivy Meadows Care Home in Woodley, Greater Manchester
+ * Statement of Harold Silvana, regarding discoveries made during the renovation of the Reform Club, Pall Mall
+ * Statement of Dr. Lionel Elliott, regarding a series of events that took place during his class 'Introduction to Human Anatomy and Physiology' at King's College, London
+ * Statement of Jonathan Sims, Head Archivist of the Magnus Institute, regarding exploration of the tunnels recently discovered below the archive
+ * Statement of Jennifer Ling, regarding a live musical performance she attended in Soho
+ * Statement of Elias Buchard, Tim Stoker, Sasha James, Martin Blackwood and Jonathan Sims regarding the infestation of the Magnus Institute by the entity formerly known as Jane Prentiss
+ * Statement of Andrea Nunis, regarding a series of encounters in the streets of Genoa, Italy
+ * Statement of Sampson Kempthrone, regarding the workhouse architecture of George Gilbert Scott
+ *       `Statement of ${getName()}, regarding a repeat customer to their ${getNoun()} in Chichester`,
  */
