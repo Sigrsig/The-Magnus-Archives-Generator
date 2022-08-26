@@ -53,7 +53,6 @@ const Generator = () => {
   }, []);
 
   const generate = () => {
-    // Note: figure out where you can move this const
     const statements = [
       `Statement of ${getName()}, regarding their time in possession of an apparently ${getAdj()} ${getNoun()}`,
       `Statement of ${getName()}, regarding an alleged ${getNoun()} of their acquaintance ${getName()}`,
@@ -75,26 +74,27 @@ const Generator = () => {
       `Statement of ${getName()}, regarding his life as a self-proclaimed ${getJob()}`,
     ];
 
-    setGenerated(statements[Math.round(Math.random() * statements.length - 1)]);
+    setGenerated(statements[Math.floor(Math.random() * statements.length - 1)]);
     // setGenerated(statements[10]);
   };
+
   const getNoun = () => {
-    return nouns[Math.round(Math.random() * nouns.length - 1)].noun;
+    return nouns[Math.floor(Math.random() * nouns.length - 1)].noun;
   };
 
   const getPluralNoun = () => {
-    const noun = nouns[Math.round(Math.random() * nouns.length - 1)].noun;
+    const noun = nouns[Math.floor(Math.random() * nouns.length - 1)].noun;
     if (noun[noun.length - 1] === "s" || noun[noun.length - 1] === "y")
       return noun;
     return noun + "s";
   };
 
   // const getVerb = () => {
-  //   return verbs[Math.round(Math.random() * verbs.length - 1)].verb;
+  //   return verbs[Math.floor(Math.random() * verbs.length - 1)].verb;
   // };
 
   const getIngVerb = () => {
-    const verbNum = Math.round(Math.random() * verbs.length - 1);
+    const verbNum = Math.floor(Math.random() * verbs.length - 1);
     const verb = verbs[verbNum].verb;
     const doubled = verbs[verbNum].doubled;
 
@@ -105,7 +105,7 @@ const Generator = () => {
   };
 
   const getEdVerb = () => {
-    const verbNum = Math.round(Math.random() * verbs.length - 1);
+    const verbNum = Math.floor(Math.random() * verbs.length - 1);
     const verb = verbs[verbNum].verb;
     const doubled = verbs[verbNum].doubled;
 
@@ -116,23 +116,23 @@ const Generator = () => {
   };
 
   const getAdj = () => {
-    return adj[Math.round(Math.random() * adj.length - 1)].adj;
+    return adj[Math.floor(Math.random() * adj.length - 1)].adj;
   };
 
   const getName = () => {
     const nameType = Math.floor(Math.random() * 10) + 1;
     if (nameType === 1) return tmaName();
     return (
-      firstnames[Math.round(Math.random() * firstnames.length - 1)].first_name +
+      firstnames[Math.floor(Math.random() * firstnames.length - 1)].first_name +
       " " +
-      lastnames[Math.round(Math.random() * lastnames.length - 1)].last_name
+      lastnames[Math.floor(Math.random() * lastnames.length - 1)].last_name
     );
   };
 
   const getYear = () => Math.floor(Math.floor(Math.random() * 523) + 1500);
 
   const getJob = () => {
-    return jobs[Math.round(Math.random() * jobs.length - 1)].job.toLowerCase();
+    return jobs[Math.floor(Math.random() * jobs.length - 1)].job.toLowerCase();
   };
 
   return (
@@ -154,7 +154,7 @@ export default Generator;
  * Reached: 33
  * https://snarp.github.io/magnus_archives_transcripts/
  * -ed and -ing verbs don't know when to do double constinants before -ed/-ing
- * math.round vs. math.floor?
+ * math.floor vs. math.floor?
  * add lie verb
  *
  * Unused statements:
