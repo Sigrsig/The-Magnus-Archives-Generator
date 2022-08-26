@@ -1,6 +1,8 @@
 const express = require("express");
 const helmet = require("helmet"); // creates headers that protect from attacks (security)
 const cors = require("cors"); // allows/disallows cross-site communication
+const path = require("path");
+__dirname = path.resolve();
 
 const firstnames = require("./routes/firstnames");
 const lastnames = require("./routes/lastnames");
