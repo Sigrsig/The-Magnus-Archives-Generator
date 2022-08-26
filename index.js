@@ -17,7 +17,7 @@ const app = express();
 const whitelist = [
   "http://localhost:3000",
   "http://localhost:1234",
-  "https://shrouded-journey-38552.herokuapp.com",
+  "https://tma-statement-generator.herokuapp.com/",
 ];
 const corsOptions = {
   origin: function (origin, callback) {
@@ -55,4 +55,4 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-app.listen(1234);
+app.listen(process.env.PORT || 1234);
