@@ -73,17 +73,19 @@ const Generator = () => {
       `Statement of ${getName()}, regarding a ${getAdj()} ${getNoun()} in their attic`,
       `Statement of ${getName()}, regarding his life as a self-proclaimed ${getJob()}`,
     ];
-
-    setGenerated(statements[Math.floor(Math.random() * statements.length - 1)]);
-    // setGenerated(statements[10]);
+    setGenerated(
+      statements[Math.floor(Math.random() * (statements.length - 1))]
+    );
+    // setGenerated(statements[statements.length - 1]);
+    return;
   };
 
   const getNoun = () => {
-    return nouns[Math.floor(Math.random() * nouns.length - 1)].noun;
+    return nouns[Math.floor(Math.random() * nouns.length)].noun;
   };
 
   const getPluralNoun = () => {
-    const noun = nouns[Math.floor(Math.random() * nouns.length - 1)].noun;
+    const noun = nouns[Math.floor(Math.random() * nouns.length)].noun;
     if (noun[noun.length - 1] === "s" || noun[noun.length - 1] === "y")
       return noun;
     return noun + "s";
@@ -94,7 +96,7 @@ const Generator = () => {
   // };
 
   const getIngVerb = () => {
-    const verbNum = Math.floor(Math.random() * verbs.length - 1);
+    const verbNum = Math.floor(Math.random() * verbs.length);
     const verb = verbs[verbNum].verb;
     const doubled = verbs[verbNum].doubled;
 
@@ -105,7 +107,7 @@ const Generator = () => {
   };
 
   const getEdVerb = () => {
-    const verbNum = Math.floor(Math.random() * verbs.length - 1);
+    const verbNum = Math.floor(Math.random() * verbs.length);
     const verb = verbs[verbNum].verb;
     const doubled = verbs[verbNum].doubled;
 
@@ -116,23 +118,23 @@ const Generator = () => {
   };
 
   const getAdj = () => {
-    return adj[Math.floor(Math.random() * adj.length - 1)].adj;
+    return adj[Math.floor(Math.random() * adj.length)].adj;
   };
 
   const getName = () => {
     const nameType = Math.floor(Math.random() * 10) + 1;
     if (nameType === 1) return tmaName();
     return (
-      firstnames[Math.floor(Math.random() * firstnames.length - 1)].first_name +
+      firstnames[Math.floor(Math.random() * firstnames.length)].first_name +
       " " +
-      lastnames[Math.floor(Math.random() * lastnames.length - 1)].last_name
+      lastnames[Math.floor(Math.random() * lastnames.length)].last_name
     );
   };
 
   const getYear = () => Math.floor(Math.floor(Math.random() * 523) + 1500);
 
   const getJob = () => {
-    return jobs[Math.floor(Math.random() * jobs.length - 1)].job.toLowerCase();
+    return jobs[Math.floor(Math.random() * jobs.length)].job.toLowerCase();
   };
 
   return (
