@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import tmaName from "../functions/tmaName";
+import getMonth from "../functions/getMonth";
 
 const Generator = () => {
   const [firstnames, setFirstnames] = useState([]);
@@ -61,7 +62,7 @@ const Generator = () => {
       `Statement of ${getName()}, regarding their ${getNoun()} and its manifestations`,
       `Statement of Father ${getName()}, regarding their claimed ${getEdVerb()} ${getNoun()}`,
       `Statement of ${getName()}, regarding a discovered ${getNoun()} near their ${getNoun()} in the Black Forest`,
-      `Statement of ${getName()}, regarding an antique ${getNoun()} they possessed briefly in August ${getYear()}`,
+      `Statement of ${getName()}, regarding an antique ${getNoun()} they possessed briefly in ${getMonth()} ${getYear()}`,
       `Statement of ${getName()}, regarding a series of ${getAdj()} ${getPluralNoun()}`,
       `Statement of ${getName()}, regarding repeated ${getAdj()} intrusions into their ${getNoun()}`,
       `Statement of ${getName()}, regarding their own ${getNoun()}`,
@@ -71,8 +72,8 @@ const Generator = () => {
       `Statement of ${getName()}, regarding his life as a self-proclaimed ${getJob()}`,
     ];
 
-    // setGenerated(statements[Math.round(Math.random() * statements.length - 1)]);
-    setGenerated(statements[5]);
+    setGenerated(statements[Math.round(Math.random() * statements.length - 1)]);
+    // setGenerated(statements[10]);
   };
   const getNoun = () => {
     return nouns[Math.round(Math.random() * nouns.length - 1)].noun;
