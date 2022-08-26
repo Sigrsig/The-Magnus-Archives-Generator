@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from "react";
+import "./Generator.css";
+import mainImg from "../media/mainimg.jpeg";
+
 import tmaName from "../functions/tmaName";
 import getMonth from "../functions/getMonth";
 
@@ -96,7 +99,8 @@ const Generator = () => {
     const doubled = verbs[verbNum].doubled;
 
     if (doubled === true) return verb + verb[verb.length - 1] + "ing";
-    else if (verb[verb.length - 1] === "e") return verb.slice(0, -1) + "ing";
+    else if (verb[verb.length - 1] === "e" && verb[verb.length - 2] !== "e")
+      return verb.slice(0, -1) + "ing";
     return verb + "ing";
   };
 
@@ -106,7 +110,8 @@ const Generator = () => {
     const doubled = verbs[verbNum].doubled;
 
     if (doubled) return verb + verb[verb.length - 1] + "ed";
-    else if (verb[verb.length - 1] === "e") return verb + "d";
+    else if (verb[verb.length - 1] === "e" && verb[verb.length - 2] !== "e")
+      return verb + "d";
     return verb + "ed";
   };
 
@@ -131,10 +136,11 @@ const Generator = () => {
   };
 
   return (
-    <div>
-      <h2>TMA Statement Generator</h2>
-      <h3>{generated}</h3>
-      <button onClick={generate}>Click to generate</button>
+    <div className="generator">
+      <img src={mainImg} className="mainimg" alt="The Magnus Archives logo" />
+      <h2>Statement Generator</h2>
+      <p>{generated}</p>
+      <button onClick={generate}>Click here to generate</button>
     </div>
   );
 };
@@ -142,7 +148,7 @@ const Generator = () => {
 export default Generator;
 
 /**
- * Ideas: get jobs, relations, places, events, -ing verbs
+ * Ideas: get relations, places, events,
  * Add Magnus archive-y words!
  * add gendered statements
  * Reached: 33
